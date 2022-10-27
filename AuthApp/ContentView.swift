@@ -82,6 +82,7 @@ struct ContentView: View {
             guard let data = data, error == nil else { return }
             
             do{
+                //let response = try JSONDecoder().decode(Response.self, from: data)
                 let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                 print("SUCCESS: \(response)")
                 
@@ -92,6 +93,10 @@ struct ContentView: View {
         
         task.resume()
     }
+}
+
+struct Response: Codable {
+    let msg: String
 }
 
 struct ContentView_Previews: PreviewProvider {
