@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EB236722911BE98003F034B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB236712911BE98003F034B /* Note.swift */; };
 		8EC52BD4290AF991000EAE22 /* AuthAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC52BD3290AF991000EAE22 /* AuthAppApp.swift */; };
 		8EC52BD6290AF991000EAE22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC52BD5290AF991000EAE22 /* ContentView.swift */; };
 		8EC52BD8290AF992000EAE22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC52BD7290AF992000EAE22 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8EB236712911BE98003F034B /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		8EC52BD0290AF991000EAE22 /* AuthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC52BD3290AF991000EAE22 /* AuthAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppApp.swift; sourceTree = "<group>"; };
 		8EC52BD5290AF991000EAE22 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				8EC52BD5290AF991000EAE22 /* ContentView.swift */,
 				8EC52BD7290AF992000EAE22 /* Assets.xcassets */,
 				8EC52BD9290AF992000EAE22 /* Preview Content */,
+				8EB236712911BE98003F034B /* Note.swift */,
 			);
 			path = AuthApp;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			files = (
 				8EC52BD6290AF991000EAE22 /* ContentView.swift in Sources */,
 				8EC52BD4290AF991000EAE22 /* AuthAppApp.swift in Sources */,
+				8EB236722911BE98003F034B /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

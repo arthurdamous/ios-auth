@@ -46,7 +46,8 @@ struct ContentView: View {
                         .border(.red, width: CGFloat(wrongPassword))
                     
                     Button("Login"){
-                        authenticateUser(username: username, password: password)
+                        //authenticateUser(username: username, password: password)
+                        getAllNotes()
                     }
                     .foregroundColor(.white)
                     .frame(width: 300, height: 50)
@@ -68,10 +69,12 @@ struct ContentView: View {
             return
         }
         
+        let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTgzNDc4ZTM4MjcwZTY5MmE4MTg3YiIsImlhdCI6MTY2NzMzMDM4NH0.kzwlWZNEMtpB5A7XCI_qQZ6ClAQfOTPxgdvXkTk0j7M"
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         let body: [String: AnyHashable] = [
             "email": username.lowercased(),
             "password": password
@@ -86,6 +89,31 @@ struct ContentView: View {
                 let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                 print("SUCCESS: \(response)")
                 
+            }catch{
+                print(error)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getAllNotes(){
+        guard let url = URL(string : "\(Constants.BASE_URL)/notes") else {
+            return
+        }
+        
+        let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTgzNDc4ZTM4MjcwZTY5MmE4MTg3YiIsImlhdCI6MTY2NzMzMDM4NH0.kzwlWZNEMtpB5A7XCI_qQZ6ClAQfOTPxgdvXkTk0j7M"
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data, error == nil else { return }
+            
+            do{
+                let results = try JSONDecoder().decode(NotesResponse.self, from: data)
+                print("SUCCESS: \(results)")
             }catch{
                 print(error)
             }
